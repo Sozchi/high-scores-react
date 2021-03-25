@@ -8,7 +8,16 @@ function App() {
   return (
     <div>
       <h1>High Scores per Country</h1>
-      {allCountryScores.map( ( countryData, index ) =>
+      {allCountryScores.sort( ( countryA, countryB ) =>
+      {
+        if ( countryA.name < countryB.name )
+        {
+          return -1 
+        } else
+        {
+          return 1
+        }
+      }).map( ( countryData, index ) => 
       {
         return <HighScoreTable key={index} playersData={countryData} />
       })}
